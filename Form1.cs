@@ -1,16 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-
 using System.Threading;
 using System.Security.Cryptography;
+using System.Drawing;
 
 namespace WindowsFormsApp5
 {
@@ -22,24 +15,16 @@ namespace WindowsFormsApp5
         {
             
             InitializeComponent();
+            this.ShowInTaskbar = false;
+            this.Opacity = 0;
+            this.Location = new Point(-10000, -10000);
+
         }
+
+
         string path = "C:\\Windows\\System32\\drivers\\etc\\hosts";
         string default_chksum = "eeea48303c423557de1f85d661c93e27";
-        private void button1_Click(object sender, EventArgs e)
-        {
-         
-            using (StreamWriter writer = File.AppendText(path))
-            {
-                writer.WriteLine("www.");
-                
-              
-            }
-              
-            string readText = File.ReadAllText(path);
-            Console.WriteLine(readText);
-        }
-
-
+   
         static void InvokeMethod()
         {
             int flag = 0;
@@ -94,7 +79,10 @@ namespace WindowsFormsApp5
 
         }
         private void Form1_Load(object sender,EventArgs e)
+
         {
+          
+
             Thread printer = new Thread(new ThreadStart(InvokeMethod));
             printer.Start();
         }
