@@ -30,7 +30,7 @@ namespace WindowsFormsApp5
             int flag = 0;
             while (true)
             {
-                if (PrintTime() != "eeea48303c423557de1f85d661c93e27") { 
+                if (check() != "eeea48303c423557de1f85d661c93e27") { 
                     MessageBox.Show("فایل هاست تغییر کرده است. ممکن است یک حمله فارمینگ باشد");
                     flag = 1;
 
@@ -65,7 +65,7 @@ namespace WindowsFormsApp5
             }
         }
 
-        static String PrintTime()
+        static String check()
         {
             string path = "C:\\Windows\\System32\\drivers\\etc\\hosts";
             using (StreamWriter writer = File.AppendText("D:\\c.txt"))
@@ -83,8 +83,8 @@ namespace WindowsFormsApp5
         {
           
 
-            Thread printer = new Thread(new ThreadStart(InvokeMethod));
-            printer.Start();
+            Thread t = new Thread(new ThreadStart(InvokeMethod));
+            t.Start();
         }
     }
 }
